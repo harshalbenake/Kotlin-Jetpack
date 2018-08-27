@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="personprofile"
+            type="com.harshalbenake.kotlinjetpack.data.Entity.PersonProfile" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:background="@android:color/holo_orange_light"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_personname"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:text="@{personprofile.name,default=name}"/>
+
+        <TextView
+            android:id="@+id/tv_personage"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:text="@{personprofile.age,default=age}" />
+
+    </LinearLayout>
+
+</layout>

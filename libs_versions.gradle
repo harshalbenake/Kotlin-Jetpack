@@ -1,0 +1,77 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+
+/**
+* Shared file between builds so that they can all use the same dependencies and
+* maven repositories.
+**/
+ext.deps = [:]
+def versions = [:]
+versions.room = "1.1.0"
+versions.lifecycle = "1.1.0"
+versions.support = "27.0.2"
+versions.android_gradle_plugin = "3.1.4"
+versions.kotlin = "1.2.50"
+versions.work = "1.0.0-alpha06"
+versions.unknown="+"
+def deps = [:]
+def build_versions = [:]
+build_versions.min_sdk = 16
+build_versions.target_sdk = 26
+build_versions.build_tools = "27.0.3"
+ext.build_versions = build_versions
+def support = [:]
+support.app_compat = "com.android.support:appcompat-v7:$versions.support"
+support.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
+support.design = "com.android.support:design:$versions.support"
+support.v4 = "com.android.support:support-v4:$versions.support"
+deps.support = support
+
+def room = [:]
+room.runtime = "android.arch.persistence.room:runtime:$versions.room"
+room.compiler = "android.arch.persistence.room:compiler:$versions.room"
+deps.room = room
+
+def lifecycle = [:]
+lifecycle.extensions = "android.arch.lifecycle:extensions:$versions.lifecycle"
+lifecycle.compiler = "android.arch.lifecycle:compiler:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def work = [:]
+work.runtime = "android.arch.work:work-runtime:$versions.work"
+work.firebase = "android.arch.work:work-firebase:$versions.work"
+deps.work = work
+
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.unknown"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+
+deps.kotlin = kotlin
+deps.paging = "android.arch.paging:runtime:$versions.paging"
+
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+ext.deps = deps
+
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+ext.addRepos = this.&addRepos
