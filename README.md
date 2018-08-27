@@ -2,7 +2,7 @@
 Kotlin-Jetpack
 
 This repository gives a basic example to build MVVM architecture using Kotlin Language.
-Android architecture components are part of Android Jetpack. They are a collection of libraries that help you design robust, testable, and maintainable apps. Start with classes for managing your UI component lifecycle and handling data persistence.
+Android architecture components are part of Android Jetpack. They are a collection of libraries that help you design robust, testable, and maintainable apps. Starts with classes for managing your UI component lifecycle and handling data persistence.
 ![alt text](https://www.xda-developers.com/files/2018/05/Android-Jetpack-1024x517.png)
 
 1) Manage your app's lifecycle with ease. New lifecycle-aware components help you manage your activity and fragment lifecycles. Survive configuration changes, avoid memory leaks and easily load data into your UI.
